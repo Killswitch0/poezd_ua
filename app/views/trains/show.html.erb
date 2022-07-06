@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <strong>На станции:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Не указано
+  <% end %>
+</p>
+
+<tr>
+  <td><%= link_to "Изменить", edit_train_path(@train) %></td>
+  <td><%= link_to "Удалить", train_path(@train), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Вы уверены?"
+  } %></td>
+</tr>
+
+<div><br>
+  <%= link_to 'Назад к поездам', trains_path, method: :get %>
+</div>
