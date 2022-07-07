@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Название:</strong>
+  <%= @route.name %>
+</p>
+
+<div>
+  <%= link_to "Изменить", edit_route_path(@route) %> |
+  <%= link_to "Удалить", @route, data: {
+      turbo_method: :delete,
+      turbo_confirm: 'Вы уверены?'
+  } %>
+</div>
