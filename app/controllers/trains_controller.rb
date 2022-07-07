@@ -2,7 +2,7 @@ class TrainsController < ApplicationController
   # метод, который мы выполняем до того, как выполним перечисленные методы в [....]
   # указываем опцию only: и массив символов, в котором указаны те экшены, перед
   # которыми будет выполняться метод set_train
-  before_action :set_train, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: %i[show edit update destroy]
 
   def index
     @trains = Train.all

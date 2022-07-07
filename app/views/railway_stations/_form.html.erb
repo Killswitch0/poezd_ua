@@ -2,11 +2,11 @@
  <%= render 'common/errors', resource: @railway_station %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label 'Название', style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Создать' %>
   </div>
 <% end %>

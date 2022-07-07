@@ -4,13 +4,13 @@
 
 <%= link_to 'На главную', welcome_index_path, method: :get %>
 
-<div id="railway_stations">
-  <% @railway_stations.each do |railway_station| %>
-    <%= render railway_station %>
-    <p>
-      <%= link_to "Show this railway station", railway_station %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <tbody>
+  <%= render @railway_stations %>
+  </tbody>
+</table>
 
-<%= link_to "New railway station", new_railway_station_path %>
+
+
+<p><%= link_to 'Новая станция', new_railway_station_path %></p>
+

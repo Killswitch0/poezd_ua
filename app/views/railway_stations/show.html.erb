@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @railway_station %>
+<p>
+  <strong>Станция:</strong>
+  <%= @railway_station.title %>
+</p>
 
 <% if @railway_station.routes.empty? %>
   <p>Станция не входит ни в один маршрут</p>
@@ -15,8 +18,11 @@
 
 
 <div>
-  <%= link_to "Edit this railway station", edit_railway_station_path(@railway_station) %> |
-  <%= link_to "Back to railway stations", railway_stations_path %>
+  <%= link_to "Изменить", edit_railway_station_path(@railway_station) %> |
+  <%= link_to "Удалить", @railway_station, data: {
+      turbo_method: :delete,
+      turbo_confirm: 'Вы уверены?'
+  } %>
 
-  <%= button_to "Destroy this railway station", @railway_station, method: :delete %>
+  <p><%= link_to "Назад к поездам", railway_stations_path %></p>
 </div>

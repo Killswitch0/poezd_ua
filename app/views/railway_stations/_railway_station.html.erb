@@ -1,7 +1,9 @@
-<div id="<%= dom_id railway_station %>">
-  <p>
-    <strong>Title:</strong>
-    <%= railway_station.title %>
-  </p>
-
-</div>
+<tr>
+  <td><%= railway_station.title %></td>
+  <td><%= link_to 'Показать', railway_station %></td>
+  <td><%= link_to 'Изменить', edit_railway_station_path(railway_station) %></td>
+  <td><%= link_to 'Удалить', railway_station, data: {
+      turbo_method: :delete,
+      turbo_confirm: 'Вы уверены?'
+  } %></td>
+</tr>
