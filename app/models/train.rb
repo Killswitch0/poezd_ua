@@ -20,7 +20,7 @@ class Train < ApplicationRecord
   # качестве таблицы нужно использовать raylway_stations, а в качестве модели класс RailwayStation.
   # желательно в таких случаях указывть в явном виде foreign_key: :название_внешнего_ключа
   #
-  # поле - внешний ключ для таблицы, должно называться так же, как и таблица,
+  # поле - внешний ключ для таблицы должен называться так же, как и таблица,
   # только в "единственном_числе_id"
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id
 end

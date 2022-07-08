@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Listing Routes</h1>
+
+<table>
+  <tbody><%= render @routes %></tbody>
+</table>
+
+<div><br>
+  <%= link_to 'На главную', welcome_index_path, method: :get %> |
+  <%= link_to 'Новый маршрут', new_route_path %>
+</div>
