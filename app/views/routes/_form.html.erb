@@ -1,0 +1,12 @@
+<%= form_with(model: @route) do |form| %>
+  <%= render 'common/errors', resource: @route %>
+
+  <div>
+    <%= form.label 'Название', style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit "#{ @route.new_record? ? 'Создать' : 'Изменить' }" %>
+  </div>
+<% end %>

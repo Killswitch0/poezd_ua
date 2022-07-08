@@ -15,7 +15,7 @@
 </p>
 
 <tr>
-  <td><%= link_to "Изменить", edit_train_path(@train) %></td>
+  <td><%= link_to "Изменить", edit_train_path(@train) %> |</td>
   <td><%= link_to "Удалить", train_path(@train), data: {
       turbo_method: :delete,
       turbo_confirm: "Вы уверены?"
