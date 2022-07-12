@@ -5,6 +5,29 @@
   <%= @route.name %>
 </p>
 
+<% if @route.railway_stations.empty? %>
+  Список пуст
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <td>Название</td>
+      <td>Позиция</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @route.railway_stations.each do |station| %>
+      <tr>
+        <td><%= station.title %></td>
+        <td>
+
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <div>
   <%= link_to "Изменить", edit_route_path(@route) %> |
   <%= link_to "Удалить", @route, data: {

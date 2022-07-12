@@ -22,7 +22,7 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
 
     if @route.save
-      redirect_to @route, notice: "Поезд успешно создан."
+      redirect_to @route, notice: "Маршрут успешно создан."
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class RoutesController < ApplicationController
 
   def update
     if @route.update(route_params)
-      redirect_to @route, notice: "Поезд успешно изменен."
+      redirect_to @route, notice: "Маршрут успешно изменен."
     else
       render :edit
     end
@@ -43,11 +43,12 @@ class RoutesController < ApplicationController
   end
 
   private
+
   def set_route
     @route = Route.find(params[:id])
   end
 
   def route_params
-    params.require(:route).permit(:name)
+    params.require(:route).permit(:name, railway_station_ids: [])
   end
 end

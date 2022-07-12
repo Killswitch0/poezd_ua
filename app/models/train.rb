@@ -1,6 +1,4 @@
 class Train < ApplicationRecord
-  validates :number, presence: true
-
   # belongs_to всегд принимает название модели в единственном числе
   # модель Train связана с одной current_station - теперь рельсы это знают
   # мы можем получить ту станцию, на которой сейчас находится поезд, через
@@ -23,4 +21,10 @@ class Train < ApplicationRecord
   # поле - внешний ключ для таблицы должен называться так же, как и таблица,
   # только в "единственном_числе_id"
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id
+
+  # Нам не нужно добавлять классы моделей, которые наследуются от Carriage, поскольку мы используем
+  # Single Table Inheritance
+  has_many :carriages
+
+  validates :number, presence: true
 end
