@@ -43,6 +43,7 @@ class TrainsController < ApplicationController
   end
 
   private
+
   def set_train
     @train = Train.find(params[:id])
   end

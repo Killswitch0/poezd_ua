@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: %i[ show edit update destroy ]
+  before_action :set_railway_station, only: %i[show edit update destroy update_position]
 
   # GET /railway_stations or /railway_stations.json
   def index
@@ -55,6 +55,17 @@ class RailwayStationsController < ApplicationController
       format.html { redirect_to railway_stations_url, notice: "Railway station was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def update_position
+    # находим маршрут, в рамках которого обновляем позицию благодря полю :route_id,
+    # прописанному в app/views/routes/show.html.erb
+    @route = Route.find(params[:route_id])
+    # в параметры передаем объект маршрута -  @route, params[:position] - значение позиции.
+    # не нужно передавать все параметры, необходимо передавать только то, что нужно для работы метода
+    @railway_station.update_position(@route, params[:position])
+
+    redirect_to @route
   end
 
   private

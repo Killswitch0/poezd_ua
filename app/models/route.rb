@@ -5,11 +5,18 @@ class Route < ApplicationRecord
   validates :name, presence: true
   validate :station_count # кастомная валидация
 
+  # Collbacks - механизм выполнения пользовательского кода
+  # при выполнении операций над объектом
+  #
+  # "Хуки"(методы), которые вызываются в жизненном цикле объекта
   before_validation :set_name
 
+  # методы private не предназначены для прямого вызва - не являются
+  # частью публичного интерфейса
   private
 
   def set_name
+    # присваиваем атрибуту name первую и последнюю станцию маршрута
     self.name ||= "#{railway_stations.first.title} - #{railway_stations.last.title}"
   end
 

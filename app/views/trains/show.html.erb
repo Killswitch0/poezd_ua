@@ -14,7 +14,22 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Вагоны:</strong>
+  <ul>
+    <% @train.carriages.each do |carr| %>
+      <!-- Так как ресурс вложенный, мы должны указать в массиве сначала родительский @train,
+       затем вложенный carr. Если в роутинге включим опцию shallow: true,
+       то исключаем родительский @train из массива -->
+    <li><%= link_to "Вагон №#{carr.number}", carr %></li>
+    <% end %>
+  </ul>
+</p>
+
 <tr>
+    <!-- так как carriage - вложенный ресурс, хэлперу new_train_carriage_path мы обязаны
+    указать родительский объект, в нашем случае @train -->
+  <td><%= link_to 'Добавить вагон', new_train_carriage_path(@train) %> |</td>
   <td><%= link_to "Изменить", edit_train_path(@train) %> |</td>
   <td><%= link_to "Удалить", train_path(@train), data: {
       turbo_method: :delete,
