@@ -1,0 +1,22 @@
+<h1>Вагон №<%=@carriage.number %></h1>
+
+<strong>
+  Поезд: <%= @carriage.train.number %>
+</strong>
+
+<p>Верхних сидений: <%= @carriage.top_seats %></p>
+
+<p>Нижних сидений: <%= @carriage.bottom_seats %></p>
+
+<p>Верхних боковых сидений: <%= @carriage.side_top_seats %></p>
+
+<p>Нижних боковых сидений: <%= @carriage.side_bottom_seats %></p>
+
+<div>
+  <%= link_to 'Удалить вагон', @carriage, data: {
+      turbo_method: :delete,
+      turbo_confirm: 'Вы уверены?'
+  } %>
+</div>
+
+<p><%= link_to 'Назад к поезду', @carriage.train %></p>
